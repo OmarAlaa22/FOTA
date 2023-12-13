@@ -1,0 +1,46 @@
+﻿
+
+
+
+<div class="container">
+
+    <div class="row justify-content-center align-items-center">
+
+        <div class="col-md-4">
+
+            <button type="submit" class="btn btn-warning"   onclick="openFile(1)">App1</button>
+            <button type="submit" class="btn btn-success" onclick="openFile(2)">App2</button>
+
+        </div>
+
+   
+
+    </div>
+
+
+
+</div>
+
+@section scripts{
+
+    <script asp-append-version="true">
+        <!--Views / Home / Index.cshtml-- >
+            function openFile(value) {
+                debugger;
+                $.ajax({
+                   url: '/Filres/OpenFile',
+                    method: 'GET',
+                    data: { value: value },
+                    success: function (data) {
+                        alert('Old Content: ' + data.oldContent + '\nNew Content: ' + data.newContent);
+                    },
+                    error: function () {
+                        alert('An error occurred.');
+                    }
+                });
+            }
+
+
+    </script>
+
+}
